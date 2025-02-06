@@ -1,12 +1,13 @@
-﻿'Jacob Horsley
+﻿Option Explicit On
+Option Strict On
+Option Compare Text On  
+
+'Jacob Horsley
 '2/5/2025
 'RCET 2206
 'URL:
 
-Option Explicit On
-Option Strict On
-
-
+Imports System.Diagnostics.Eventing.Reader
 
 Module Module1
     Sub Main()
@@ -15,26 +16,54 @@ Module Module1
         Dim userInput As String
         Dim justDoIt As Integer
         Dim result As String
-        userInput = Console.ReadLine()
-
-        justDoIt = CInt(userInput)
-        Console.WriteLine($"You entered {userInput}!")
+        Dim isValid As Boolean
+        Dim getOutofHere As Boolean
 
 
 
 
-        For i = 1 To justDoIt
 
-            For j = 1 To justDoIt
-                result = (i * j).ToString
-                'result = CStr(i * j)
-                'result = (i * j).ToString()
-                result = result.PadLeft(4)
-                'result = StrReverse(result)
-                Console.Write(result)
-            Next
-            Console.WriteLine()
-        Next
+        'Do
+        '    'Console.WriteLine("Type something and press enter")
+        '    'userInput = Console.ReadLine()
+        '    Console.WriteLine($"In the Do, Loop Until: ")
+        '    userInput = "Q"
+        'Loop Until userInput = "Q"
+
+        Do
+            Console.WriteLine("Please enter a number to create your multiplication table.")
+            userInput = Console.ReadLine()
+
+            Console.WriteLine($"you entered {userInput}!")
+
+            Try
+                justDoIt = CInt(userInput)
+                getOutofHere = True
+
+                For i = 1 To justDoIt
+
+                    For j = 1 To justDoIt
+                        result = (i * j).ToString
+                        'result = CStr(i * j)
+                        'result = (i * j).ToString()
+                        result = result.PadLeft(4)
+                        'result = StrReverse(result)
+                        Console.Write(result)
+                    Next
+                    Console.WriteLine()
+                Next
+
+
+            Catch ex As Exception
+                If userInput <> "Q" Then
+                    Console.WriteLine($"Userinput is not a whole number")
+                Else
+                    getOutofHere = True
+                End If
+            End Try
+
+        Loop Until getOutofHere = True
+
 
     End Sub
 
