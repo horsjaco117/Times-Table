@@ -1,6 +1,6 @@
 ﻿Option Explicit On
 Option Strict On
-Option Compare Text On  
+Option Compare Text
 
 'Jacob Horsley
 '2/5/2025
@@ -17,7 +17,7 @@ Module Module1
         Dim justDoIt As Integer
         Dim result As String
         Dim isValid As Boolean
-        Dim getOutofHere As Boolean
+        Dim getOutofHere As Boolean = False
 
 
 
@@ -34,11 +34,17 @@ Module Module1
             Console.WriteLine("Please enter a number to create your multiplication table.")
             userInput = Console.ReadLine()
 
+            If userInput.Trim().ToUpper = "Q" Then
+                Console.WriteLine("Exiting the program...")
+                getOutofHere = True
+            End If
+
             Console.WriteLine($"you entered {userInput}!")
 
             Try
                 justDoIt = CInt(userInput)
-                getOutofHere = True
+
+                Console.WriteLine($"Multiplication Table for {justDoIt}:")
 
                 For i = 1 To justDoIt
 
@@ -53,14 +59,17 @@ Module Module1
                     Console.WriteLine()
                 Next
 
-
-            Catch ex As Exception
-                If userInput <> "Q" Then
-                    Console.WriteLine($"Userinput is not a whole number")
-                Else
+                Console.WriteLine(vbCrLf & "Would you like to create another table? (Press 'Q' to quit)")
+                userInput = Console.ReadLine()
+                If userInput.Trim().ToUpper() = "Q" Then
+                    Console.WriteLine("Exiting...")
                     getOutofHere = True
                 End If
+
+            Catch ex As Exception
+                Console.WriteLine("Unacceptable input.")
             End Try
+
 
         Loop Until getOutofHere = True
 
