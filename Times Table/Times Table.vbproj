@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{9228AB0B-D5F8-430E-9925-5FC70DFD1BFD}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <StartupObject>Times_Table.Module1</StartupObject>
+    <StartupObject>Times_Table.multiplicationTable</StartupObject>
     <RootNamespace>Times_Table</RootNamespace>
     <AssemblyName>Times Table</AssemblyName>
     <FileAlignment>512</FileAlignment>
@@ -69,7 +69,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Module1.vb" />
+    <Compile Include="Multiplication Table.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>

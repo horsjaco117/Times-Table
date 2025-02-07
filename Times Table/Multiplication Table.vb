@@ -5,74 +5,53 @@ Option Compare Text
 'Jacob Horsley
 '2/5/2025
 'RCET 2206
-'URL:
+'URL:https://github.com/horsjaco117/Times-Table
 
 Imports System.Diagnostics.Eventing.Reader
 
-Module Module1
+Module multiplicationTable
     Sub Main()
 
 
         Dim userInput As String
         Dim justDoIt As Integer
         Dim result As String
-        Dim isValid As Boolean
         Dim getOutofHere As Boolean = False
-
-
-
-
-
-        'Do
-        '    'Console.WriteLine("Type something and press enter")
-        '    'userInput = Console.ReadLine()
-        '    Console.WriteLine($"In the Do, Loop Until: ")
-        '    userInput = "Q"
-        'Loop Until userInput = "Q"
 
         Do
             Console.WriteLine("Please enter a number to create your multiplication table.")
+            Console.WriteLine("Or enter 'Q' to quit.")
             userInput = Console.ReadLine()
-
-            If userInput.Trim().ToUpper = "Q" Then
-                Console.WriteLine("Exiting the program...")
-                getOutofHere = True
-            End If
 
             Console.WriteLine($"you entered {userInput}!")
 
             Try
-                justDoIt = CInt(userInput)
+                justDoIt = CInt(userInput) 'User's number to conversion
 
                 Console.WriteLine($"Multiplication Table for {justDoIt}:")
 
-                For i = 1 To justDoIt
+                For i = 1 To justDoIt 'Helps make columns
 
-                    For j = 1 To justDoIt
+                    For j = 1 To justDoIt 'helps make rows too
                         result = (i * j).ToString
-                        'result = CStr(i * j)
-                        'result = (i * j).ToString()
                         result = result.PadLeft(4)
-                        'result = StrReverse(result)
                         Console.Write(result)
                     Next
                     Console.WriteLine()
                 Next
 
-                Console.WriteLine(vbCrLf & "Would you like to create another table? (Press 'Q' to quit)")
-                userInput = Console.ReadLine()
+            Catch ex As Exception 'Code to exit the program
                 If userInput.Trim().ToUpper() = "Q" Then
                     Console.WriteLine("Exiting...")
                     getOutofHere = True
+
+                Else
+                    Console.WriteLine("Unacceptable input.")
                 End If
 
-            Catch ex As Exception
-                Console.WriteLine("Unacceptable input.")
             End Try
 
-
         Loop Until getOutofHere = True
-
 
     End Sub
 
