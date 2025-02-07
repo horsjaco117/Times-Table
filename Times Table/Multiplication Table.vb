@@ -5,6 +5,7 @@ Option Compare Text
 'Jacob Horsley
 '2/5/2025
 'RCET 2206
+'Multiplication Table
 'URL:https://github.com/horsjaco117/Times-Table
 
 Imports System.Diagnostics.Eventing.Reader
